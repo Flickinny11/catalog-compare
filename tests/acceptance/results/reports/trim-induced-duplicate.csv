@@ -1,0 +1,2 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","conflict","A","2; 3","2; 3","11 | 10","11 | 10","","Duplicate SKU: 2 catalog / 2 supplier rows"

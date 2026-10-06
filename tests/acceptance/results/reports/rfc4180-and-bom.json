@@ -1,0 +1,145 @@
+{
+  "rows": [
+    {
+      "key": "COMMA,SKU",
+      "before": [
+        {
+          "key": "COMMA,SKU",
+          "rawKey": "COMMA,SKU",
+          "rawValue": "10.00",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "COMMA,SKU",
+          "rawKey": "COMMA,SKU",
+          "rawValue": "11.00",
+          "record": 2
+        }
+      ],
+      "delta": "+1.00",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "10",
+      "afterNumber": "11"
+    },
+    {
+      "key": "QUOTE\"SKU",
+      "before": [
+        {
+          "key": "QUOTE\"SKU",
+          "rawKey": "QUOTE\"SKU",
+          "rawValue": "2.00",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "QUOTE\"SKU",
+          "rawKey": "QUOTE\"SKU",
+          "rawValue": "2",
+          "record": 3
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "2",
+      "afterNumber": "2"
+    },
+    {
+      "key": "MULTILINE",
+      "before": [
+        {
+          "key": "MULTILINE",
+          "rawKey": "MULTILINE",
+          "rawValue": "3.50",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "MULTILINE",
+          "rawKey": "MULTILINE",
+          "rawValue": "3.500",
+          "record": 4
+        }
+      ],
+      "delta": "0.000",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "3.5",
+      "afterNumber": "3.5"
+    },
+    {
+      "key": "café-01",
+      "before": [
+        {
+          "key": "café-01",
+          "rawKey": "café-01",
+          "rawValue": "4.00",
+          "record": 5
+        }
+      ],
+      "after": [
+        {
+          "key": "café-01",
+          "rawKey": "café-01",
+          "rawValue": "4",
+          "record": 5
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "4",
+      "afterNumber": "4"
+    },
+    {
+      "key": "TAIL",
+      "before": [
+        {
+          "key": "TAIL",
+          "rawKey": "TAIL",
+          "rawValue": "0",
+          "record": 6
+        }
+      ],
+      "after": [
+        {
+          "key": "TAIL",
+          "rawKey": "TAIL",
+          "rawValue": "0.00",
+          "record": 6
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "0",
+      "afterNumber": "0"
+    }
+  ],
+  "counts": {
+    "changed": 1,
+    "unchanged": 4,
+    "added": 0,
+    "removed": 0,
+    "conflict": 0,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 5,
+    "after": 5
+  }
+}

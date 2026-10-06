@@ -1,0 +1,193 @@
+{
+  "rows": [
+    {
+      "key": "0007",
+      "before": [
+        {
+          "key": "0007",
+          "rawKey": "0007",
+          "rawValue": "1",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "0007",
+          "rawKey": "0007",
+          "rawValue": "2",
+          "record": 2
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "7",
+      "before": [
+        {
+          "key": "7",
+          "rawKey": "7",
+          "rawValue": "7",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "7",
+          "rawKey": "7",
+          "rawValue": "7",
+          "record": 3
+        }
+      ],
+      "delta": "0",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "7",
+      "afterNumber": "7"
+    },
+    {
+      "key": "abc",
+      "before": [
+        {
+          "key": "abc",
+          "rawKey": "abc",
+          "rawValue": "3",
+          "record": 4
+        }
+      ],
+      "after": [],
+      "delta": "",
+      "reason": "Catalog only. Not supplied; not an instruction to remove or zero.",
+      "status": "removed"
+    },
+    {
+      "key": "Case",
+      "before": [
+        {
+          "key": "Case",
+          "rawKey": "Case",
+          "rawValue": "4",
+          "record": 5
+        }
+      ],
+      "after": [],
+      "delta": "",
+      "reason": "Catalog only. Not supplied; not an instruction to remove or zero.",
+      "status": "removed"
+    },
+    {
+      "key": " SPACED ",
+      "before": [
+        {
+          "key": " SPACED ",
+          "rawKey": " SPACED ",
+          "rawValue": "8",
+          "record": 6
+        }
+      ],
+      "after": [],
+      "delta": "",
+      "reason": "Catalog only. Not supplied; not an instruction to remove or zero.",
+      "status": "removed"
+    },
+    {
+      "key": "INNER  SPACE",
+      "before": [
+        {
+          "key": "INNER  SPACE",
+          "rawKey": "INNER  SPACE",
+          "rawValue": "9",
+          "record": 7
+        }
+      ],
+      "after": [],
+      "delta": "",
+      "reason": "Catalog only. Not supplied; not an instruction to remove or zero.",
+      "status": "removed"
+    },
+    {
+      "key": "ABC",
+      "before": [],
+      "after": [
+        {
+          "key": "ABC",
+          "rawKey": "ABC",
+          "rawValue": "3",
+          "record": 4
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier only. No catalog match; not an instruction to add.",
+      "status": "added"
+    },
+    {
+      "key": "case",
+      "before": [],
+      "after": [
+        {
+          "key": "case",
+          "rawKey": "case",
+          "rawValue": "4",
+          "record": 5
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier only. No catalog match; not an instruction to add.",
+      "status": "added"
+    },
+    {
+      "key": "SPACED",
+      "before": [],
+      "after": [
+        {
+          "key": "SPACED",
+          "rawKey": "SPACED",
+          "rawValue": "9",
+          "record": 6
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier only. No catalog match; not an instruction to add.",
+      "status": "added"
+    },
+    {
+      "key": "INNER SPACE",
+      "before": [],
+      "after": [
+        {
+          "key": "INNER SPACE",
+          "rawKey": "INNER SPACE",
+          "rawValue": "9",
+          "record": 7
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier only. No catalog match; not an instruction to add.",
+      "status": "added"
+    }
+  ],
+  "counts": {
+    "changed": 1,
+    "unchanged": 1,
+    "added": 4,
+    "removed": 4,
+    "conflict": 0,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 6,
+    "after": 6
+  }
+}

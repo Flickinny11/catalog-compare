@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-06T12:47:02.750Z",
+  "appSha256": "fbe2139b08f7e424fcbc53e4731a6ccbe44dfeecd4645f949325848643f7e73c",
+  "test_surface": "Actual application module evaluated against jsdom; import redirected to actual core exports. No browser or site modification.",
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "id": "oversized-replacement-clears-old-result",
+      "passed": true
+    },
+    {
+      "id": "invalid-utf8-replacement-clears-old-result",
+      "passed": true
+    },
+    {
+      "id": "pending-file-read-invalidates-old-report",
+      "passed": true
+    },
+    {
+      "id": "later-selection-wins-out-of-order-reads",
+      "passed": true
+    },
+    {
+      "id": "clear-cancels-pending-file-read",
+      "passed": true
+    }
+  ]
+}

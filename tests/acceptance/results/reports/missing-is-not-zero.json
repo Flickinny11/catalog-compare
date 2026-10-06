@@ -1,0 +1,197 @@
+{
+  "rows": [
+    {
+      "key": "",
+      "status": "invalid",
+      "reason": "Missing SKU in catalog",
+      "before": [
+        {
+          "key": "",
+          "rawKey": "",
+          "rawValue": "1",
+          "record": 2
+        }
+      ],
+      "after": [],
+      "delta": ""
+    },
+    {
+      "key": "   ",
+      "status": "invalid",
+      "reason": "Missing SKU in catalog",
+      "before": [
+        {
+          "key": "   ",
+          "rawKey": "   ",
+          "rawValue": "2",
+          "record": 3
+        }
+      ],
+      "after": [],
+      "delta": ""
+    },
+    {
+      "key": "",
+      "status": "invalid",
+      "reason": "Missing SKU in supplier",
+      "before": [],
+      "after": [
+        {
+          "key": "",
+          "rawKey": "",
+          "rawValue": "1",
+          "record": 2
+        }
+      ],
+      "delta": ""
+    },
+    {
+      "key": "\t",
+      "status": "invalid",
+      "reason": "Missing SKU in supplier",
+      "before": [],
+      "after": [
+        {
+          "key": "\t",
+          "rawKey": "\t",
+          "rawValue": "2",
+          "record": 3
+        }
+      ],
+      "delta": ""
+    },
+    {
+      "key": "ZERO",
+      "before": [
+        {
+          "key": "ZERO",
+          "rawKey": "ZERO",
+          "rawValue": "0",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "ZERO",
+          "rawKey": "ZERO",
+          "rawValue": "0.00",
+          "record": 4
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "0",
+      "afterNumber": "0"
+    },
+    {
+      "key": "MISSING-OLD",
+      "before": [
+        {
+          "key": "MISSING-OLD",
+          "rawKey": "MISSING-OLD",
+          "rawValue": "",
+          "record": 5
+        }
+      ],
+      "after": [
+        {
+          "key": "MISSING-OLD",
+          "rawKey": "MISSING-OLD",
+          "rawValue": "0",
+          "record": 5
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Missing value",
+      "status": "invalid"
+    },
+    {
+      "key": "MISSING-NEW",
+      "before": [
+        {
+          "key": "MISSING-NEW",
+          "rawKey": "MISSING-NEW",
+          "rawValue": "4",
+          "record": 6
+        }
+      ],
+      "after": [
+        {
+          "key": "MISSING-NEW",
+          "rawKey": "MISSING-NEW",
+          "rawValue": "",
+          "record": 6
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier: Missing value",
+      "status": "invalid"
+    },
+    {
+      "key": "BOTH-EMPTY",
+      "before": [
+        {
+          "key": "BOTH-EMPTY",
+          "rawKey": "BOTH-EMPTY",
+          "rawValue": "",
+          "record": 7
+        }
+      ],
+      "after": [
+        {
+          "key": "BOTH-EMPTY",
+          "rawKey": "BOTH-EMPTY",
+          "rawValue": "",
+          "record": 7
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Missing value; Supplier: Missing value",
+      "status": "invalid"
+    },
+    {
+      "key": "SPACE-VALUE",
+      "before": [
+        {
+          "key": "SPACE-VALUE",
+          "rawKey": "SPACE-VALUE",
+          "rawValue": "   ",
+          "record": 8
+        }
+      ],
+      "after": [
+        {
+          "key": "SPACE-VALUE",
+          "rawKey": "SPACE-VALUE",
+          "rawValue": "0",
+          "record": 8
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Missing value",
+      "status": "invalid"
+    }
+  ],
+  "counts": {
+    "changed": 0,
+    "unchanged": 1,
+    "added": 0,
+    "removed": 0,
+    "conflict": 0,
+    "invalid": 8
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 7,
+    "after": 7
+  }
+}

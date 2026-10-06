@@ -1,0 +1,6 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","COMMA,SKU","2","2","10.00","11.00","'+1.00","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","QUOTE""SKU","3","3","2.00","2","0.00","Exact SKU match; same numeric value"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","MULTILINE","4","4","3.50","3.500","0.000","Exact SKU match; same numeric value"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","café-01","5","5","4.00","4","0.00","Exact SKU match; same numeric value"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","TAIL","6","6","0","0.00","0.00","Exact SKU match; same numeric value"

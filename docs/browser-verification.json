@@ -1,0 +1,71 @@
+{
+  "verified_at_utc": "2026-10-06T12:46:00Z",
+  "surface": "Local app in desktop Chrome and Codex in-app browser",
+  "source_sha256": {
+    "index.html": "206bc670b35edba8c4c1f2f16b25ed75cc46e9ac4710ef6ebb7f9dd65fcabd2b",
+    "styles.css": "d6af259344ecac08743b111a1800a9ac29d2fabb67fbd2bf178db8c97c94743a",
+    "core.mjs": "b4020657d8a1e7cc7b894d234c6416eb7674331eb921b991177da0b9b75d3cab",
+    "app.mjs": "fbe2139b08f7e424fcbc53e4731a6ccbe44dfeecd4645f949325848643f7e73c"
+  },
+  "checks": [
+    {
+      "name": "synthetic example",
+      "result": "pass",
+      "counts": {
+        "changed": 4,
+        "unchanged": 2,
+        "unmatched": 2,
+        "exceptions": 2
+      }
+    },
+    {
+      "name": "actual CSV file selection",
+      "result": "pass",
+      "inputs": "synthetic formula-before/after CSVs",
+      "changed": 10
+    },
+    {
+      "name": "malformed replacement invalidates report and compare",
+      "result": "pass"
+    },
+    {
+      "name": "search, empty state, exception filter",
+      "result": "pass"
+    },
+    {
+      "name": "WebMCP example, summary, filter and rejected invalid filter preserves state",
+      "result": "pass"
+    },
+    {
+      "name": "About and report dialog Escape; report text selection",
+      "result": "pass"
+    },
+    {
+      "name": "visible CSV report parsed independently",
+      "result": "pass",
+      "rows": 10,
+      "columns": 9,
+      "leading_zero_preserved": true,
+      "formula_prefix_escaped": true
+    },
+    {
+      "name": "390px and320px Chrome device emulation",
+      "result": "pass",
+      "document_width_equals_viewport": true,
+      "real_device_test": false
+    },
+    {
+      "name": "network requests during example, file selection, comparison, filtering",
+      "result": "pass",
+      "requests_observed": 0,
+      "scope": "After initial app assets loaded; local browser only"
+    },
+    {
+      "name": "native CSV download completion",
+      "result": "unverified",
+      "details": "Download-event waits timed out in both available browser surfaces; visible/selectable CSV fallback verified. No claim of a completed native download."
+    }
+  ],
+  "screenshots": "Desktop and390px captures retained with launch deliverables; all displayed data synthetic.",
+  "limits": "No end-user usability study, real store import, paying customer, production traffic or sales verified."
+}

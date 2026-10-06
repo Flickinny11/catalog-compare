@@ -1,0 +1,389 @@
+{
+  "date": "2026-10-06T12:36:20.590Z",
+  "coreFile": "core.mjs",
+  "coreSha256": "b4020657d8a1e7cc7b894d234c6416eb7674331eb921b991177da0b9b75d3cab",
+  "passed": 95,
+  "failed": 0,
+  "results": [
+    {
+      "id": "parse:01-rfc-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:01-rfc-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:02-exact-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:02-exact-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:03-duplicates-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:03-duplicates-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:04-trim-collision-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:04-trim-collision-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:05-missing-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:05-missing-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:06-identifiers-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:06-identifiers-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:07-decimal-dot-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:07-decimal-comma-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:08-value-changes-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:08-value-changes-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:09-formula-before.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:09-formula-after.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:10-malformed-unterminated.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:11-malformed-width-short.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:12-malformed-width-long.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:13-malformed-after-quote.csv",
+      "passed": true
+    },
+    {
+      "id": "parse:14-malformed-bare-quote.csv",
+      "passed": true
+    },
+    {
+      "id": "compare:rfc4180-and-bom",
+      "passed": true
+    },
+    {
+      "id": "compare:exact-default",
+      "passed": true
+    },
+    {
+      "id": "compare:trim-is-explicit",
+      "passed": true
+    },
+    {
+      "id": "compare:duplicates-on-either-side",
+      "passed": true
+    },
+    {
+      "id": "compare:trim-off-no-collision",
+      "passed": true
+    },
+    {
+      "id": "compare:trim-induced-duplicate",
+      "passed": true
+    },
+    {
+      "id": "compare:missing-is-not-zero",
+      "passed": true
+    },
+    {
+      "id": "compare:identifiers-are-text",
+      "passed": true
+    },
+    {
+      "id": "compare:per-file-decimal-and-column-selection",
+      "passed": true
+    },
+    {
+      "id": "compare:changes-zero-and-decimal-delta",
+      "passed": true
+    },
+    {
+      "id": "compare:formula-looking-sku-and-report",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"+SUM(1,2)\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"-2+3\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"@SUM(1,2)\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"  =1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"\\t=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"\\r=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"\\n=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"'=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "report-cell:\"SAFE-SKU\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\"0\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\"-0\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\"+0\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\"000012.300\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\" 12.30 \"",
+      "passed": true
+    },
+    {
+      "id": "decimal-valid:\"-12.50\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\" \"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"\\t\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"12,30\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"$12\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"1e3\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"0x10\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"1.2.3\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"Infinity\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"NaN\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"12xyz\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"1_000\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"12.\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\" .5\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"1 000\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"1 000\"",
+      "passed": true
+    },
+    {
+      "id": "decimal-reject:\"=1+1\"",
+      "passed": true
+    },
+    {
+      "id": "semicolon-quoted",
+      "passed": true
+    },
+    {
+      "id": "tab-quoted",
+      "passed": true
+    },
+    {
+      "id": "invalid-header:\"\"",
+      "passed": true
+    },
+    {
+      "id": "invalid-header:\"SKU,Price\\r\\n\"",
+      "passed": true
+    },
+    {
+      "id": "invalid-header:\"SKU,SKU\\r\\nA,1\\r\\n\"",
+      "passed": true
+    },
+    {
+      "id": "invalid-header:\"SKU, \\r\\nA,1\\r\\n\"",
+      "passed": true
+    },
+    {
+      "id": "10000-row-boundary",
+      "passed": true
+    },
+    {
+      "id": "10001-row-rejected",
+      "passed": true
+    },
+    {
+      "id": "prototype-property-keys",
+      "passed": true
+    },
+    {
+      "id": "unmatched-invalid-values",
+      "passed": true
+    },
+    {
+      "id": "columns-199-accepted",
+      "passed": true
+    },
+    {
+      "id": "columns-200-accepted",
+      "passed": true
+    },
+    {
+      "id": "columns-201-rejected",
+      "passed": true
+    },
+    {
+      "id": "data-record-201-fields-rejected",
+      "passed": true
+    },
+    {
+      "id": "field-plain-65535",
+      "passed": true
+    },
+    {
+      "id": "field-plain-65536",
+      "passed": true
+    },
+    {
+      "id": "field-plain-65537",
+      "passed": true
+    },
+    {
+      "id": "field-quoted-65535",
+      "passed": true
+    },
+    {
+      "id": "field-quoted-65536",
+      "passed": true
+    },
+    {
+      "id": "field-quoted-65537",
+      "passed": true
+    },
+    {
+      "id": "escaped-quote-field-65536",
+      "passed": true
+    },
+    {
+      "id": "escaped-quote-field-65537",
+      "passed": true
+    },
+    {
+      "id": "unicode-field-at-65536-code-units",
+      "passed": true
+    },
+    {
+      "id": "unicode-field-over-65536-code-units",
+      "passed": true
+    },
+    {
+      "id": "quoted-newlines-at-field-boundary",
+      "passed": true
+    },
+    {
+      "id": "header-field-over-limit",
+      "passed": true
+    },
+    {
+      "id": "numeric-100-character-boundary",
+      "passed": true
+    },
+    {
+      "id": "numeric-101-character-rejected",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,1846 @@
+{
+  "format_version": 1,
+  "purpose": "Synthetic independent acceptance fixtures, not app implementation or production supplier data",
+  "created_date": "2026-10-06",
+  "scope": "Exact SKU reconciliation of one explicitly selected numeric column per input",
+  "conventions": {
+    "records": "1-based logical CSV record numbers, header is record1; embedded newlines do not increment logical records",
+    "status_counts": "Distinct nonblank comparison keys, not source-row counts. Missing-SKU rows counted separately. Conflicted keys never count as changed/unchanged/added/removed.",
+    "numeric_expectations": "Decimal strings express exact expected numbers; JSON binary floating point is intentionally avoided.",
+    "added_removed_direction": "Added = present only in after; removed = present only in before.",
+    "proposed_contracts": [
+      "Strict ungrouped decimal grammar described in case07",
+      "Whitespace-only SKU is invalid even with trim off",
+      "Malformed records reject the file instead of silently partial-comparing",
+      "Formula safety for reports only, preserving exact matching keys"
+    ],
+    "contract_status": "Confirmed for the current release on 2026-10-06."
+  },
+  "files": {
+    "01-rfc-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price",
+        "Description",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "COMMA,SKU",
+          "10.00",
+          "Widget, large",
+          ""
+        ],
+        [
+          "QUOTE\"SKU",
+          "2.00",
+          "He said \"hello\"",
+          "quoted identifier"
+        ],
+        [
+          "MULTILINE",
+          "3.50",
+          "Line one\r\nLine two",
+          "embedded CRLF"
+        ],
+        [
+          "café-01",
+          "4.00",
+          "Café / 日本語 / 🧾",
+          "Unicode"
+        ],
+        [
+          "TAIL",
+          "0",
+          "Last field is empty",
+          ""
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "e3f0f8a003be80ba572b61d8b477ae2423c11a2916adcf3d311511c5f42d1b04"
+    },
+    "01-rfc-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price",
+        "Description",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "COMMA,SKU",
+          "11.00",
+          "Widget, large",
+          ""
+        ],
+        [
+          "QUOTE\"SKU",
+          "2",
+          "He said \"hello\"",
+          "quoted identifier"
+        ],
+        [
+          "MULTILINE",
+          "3.500",
+          "Line one\r\nLine two",
+          "embedded CRLF"
+        ],
+        [
+          "café-01",
+          "4",
+          "Café / 日本語 / 🧾",
+          "Unicode"
+        ],
+        [
+          "TAIL",
+          "0.00",
+          "Last field is empty",
+          ""
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "5f482c447f4f8a219ee3553cb7b49135caef9c81a32818e46266c63ec3b01d7a"
+    },
+    "02-exact-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "0007",
+          "1"
+        ],
+        [
+          "7",
+          "7"
+        ],
+        [
+          "abc",
+          "3"
+        ],
+        [
+          "Case",
+          "4"
+        ],
+        [
+          " SPACED ",
+          "8"
+        ],
+        [
+          "INNER  SPACE",
+          "9"
+        ]
+      ],
+      "data_row_count": 6,
+      "sha256": "bb2380342a350e9c55545e25f568b46413a1e1318e577d03e36eec4c9f14c6e5"
+    },
+    "02-exact-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "0007",
+          "2"
+        ],
+        [
+          "7",
+          "7"
+        ],
+        [
+          "ABC",
+          "3"
+        ],
+        [
+          "case",
+          "4"
+        ],
+        [
+          "SPACED",
+          "9"
+        ],
+        [
+          "INNER SPACE",
+          "9"
+        ]
+      ],
+      "data_row_count": 6,
+      "sha256": "819a7652a6205f6d8f1a47bc716d758e55d3b0fc71165737ea6e3076b37fbbec"
+    },
+    "03-duplicates-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "D1",
+          "10"
+        ],
+        [
+          "D1",
+          "11"
+        ],
+        [
+          "D2",
+          "20"
+        ],
+        [
+          "D3",
+          "30"
+        ],
+        [
+          "D3",
+          "30"
+        ],
+        [
+          "SINGLE",
+          "4"
+        ]
+      ],
+      "data_row_count": 6,
+      "sha256": "7ff332a801df619fa54a560bc133e62b1c1fa127054a9ae69fc5d3d3c7c7a041"
+    },
+    "03-duplicates-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "D1",
+          "12"
+        ],
+        [
+          "D2",
+          "20"
+        ],
+        [
+          "D2",
+          "21"
+        ],
+        [
+          "D3",
+          "30"
+        ],
+        [
+          "SINGLE",
+          "4"
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "6be1dda1c6997d444d757d1fb3048ca8ea6aa8bb6f7d04103d47c15c933f5099"
+    },
+    "04-trim-collision-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "A",
+          "11"
+        ],
+        [
+          " A ",
+          "10"
+        ]
+      ],
+      "data_row_count": 2,
+      "sha256": "9afb041dd61cee9bb8aeb73109c232a76e297b349f13d448e660145c7b6bf4c8"
+    },
+    "04-trim-collision-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "A",
+          "11"
+        ],
+        [
+          " A ",
+          "10"
+        ]
+      ],
+      "data_row_count": 2,
+      "sha256": "9afb041dd61cee9bb8aeb73109c232a76e297b349f13d448e660145c7b6bf4c8"
+    },
+    "05-missing-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "",
+          "1"
+        ],
+        [
+          "   ",
+          "2"
+        ],
+        [
+          "ZERO",
+          "0"
+        ],
+        [
+          "MISSING-OLD",
+          ""
+        ],
+        [
+          "MISSING-NEW",
+          "4"
+        ],
+        [
+          "BOTH-EMPTY",
+          ""
+        ],
+        [
+          "SPACE-VALUE",
+          "   "
+        ]
+      ],
+      "data_row_count": 7,
+      "sha256": "27fad0e97a9ec7e51aa6488ffdb9739dda2879b809a483bc15c5b50a13d38498"
+    },
+    "05-missing-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "",
+          "1"
+        ],
+        [
+          "\t",
+          "2"
+        ],
+        [
+          "ZERO",
+          "0.00"
+        ],
+        [
+          "MISSING-OLD",
+          "0"
+        ],
+        [
+          "MISSING-NEW",
+          ""
+        ],
+        [
+          "BOTH-EMPTY",
+          ""
+        ],
+        [
+          "SPACE-VALUE",
+          "0"
+        ]
+      ],
+      "data_row_count": 7,
+      "sha256": "6d5d19f165642b4d7163318d8bda0c512f82d14ce3061f2bea09673223302771"
+    },
+    "06-identifiers-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "1e3",
+          "1"
+        ],
+        [
+          "1000",
+          "2"
+        ],
+        [
+          "000001",
+          "3"
+        ],
+        [
+          "9007199254740993",
+          "4"
+        ],
+        [
+          "9007199254740992",
+          "5"
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "e32e5c4723044d09bc853788e1dd3340ca5556035dd9112020bc26a48d2c67b0"
+    },
+    "06-identifiers-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "1e3",
+          "2"
+        ],
+        [
+          "1000",
+          "2"
+        ],
+        [
+          "000001",
+          "3"
+        ],
+        [
+          "9007199254740993",
+          "5"
+        ],
+        [
+          "9007199254740992",
+          "5"
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "00f2f6dd0b327ac37febcfb453a0281c898e410f5e9809ef5013200f861d6ebc"
+    },
+    "07-decimal-dot-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "Item",
+        "Cost",
+        "Quantity"
+      ],
+      "rows": [
+        [
+          "DECIMAL",
+          "12.30",
+          "999"
+        ],
+        [
+          "INTEGER",
+          "1234",
+          "999"
+        ],
+        [
+          "NEGATIVE",
+          "-12.50",
+          "999"
+        ],
+        [
+          "PLUS",
+          "+12.50",
+          "999"
+        ],
+        [
+          "NEGATIVE-ZERO",
+          "-0.00",
+          "999"
+        ],
+        [
+          "EDGE-SPACE",
+          " 12.30 ",
+          "999"
+        ],
+        [
+          "PRECISION",
+          "0.10",
+          "999"
+        ],
+        [
+          "DECIMAL-NOT-GROUPING",
+          "1.234",
+          "999"
+        ],
+        [
+          "GROUPED",
+          "1,234.56",
+          "999"
+        ],
+        [
+          "GROUP-SPACES",
+          "1 234.56",
+          "999"
+        ],
+        [
+          "GROUP-NBSP",
+          "1 234.56",
+          "999"
+        ],
+        [
+          "WRONG-DECIMAL",
+          "12,30",
+          "999"
+        ],
+        [
+          "CURRENCY",
+          "$12.30",
+          "999"
+        ],
+        [
+          "SUFFIX",
+          "12.30 USD",
+          "999"
+        ],
+        [
+          "EXPONENT",
+          "1e3",
+          "999"
+        ],
+        [
+          "HEX",
+          "0x10",
+          "999"
+        ],
+        [
+          "INFINITY",
+          "Infinity",
+          "999"
+        ],
+        [
+          "NAN",
+          "NaN",
+          "999"
+        ],
+        [
+          "MULTI-DOT",
+          "1.2.3",
+          "999"
+        ],
+        [
+          "UNDERSCORE",
+          "1_000",
+          "999"
+        ],
+        [
+          "PARENS",
+          "(12.30)",
+          "999"
+        ],
+        [
+          "FORMULA-VALUE",
+          "=1+1",
+          "999"
+        ]
+      ],
+      "data_row_count": 22,
+      "sha256": "824a939bd32eb5be5331c327dffbc8b8ec7b0e5ce3b69f82dd5b0926a2aceac7"
+    },
+    "07-decimal-comma-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "Code",
+        "Net price",
+        "Quantity"
+      ],
+      "rows": [
+        [
+          "DECIMAL",
+          "12,30",
+          "0"
+        ],
+        [
+          "INTEGER",
+          "1234",
+          "0"
+        ],
+        [
+          "NEGATIVE",
+          "-12,50",
+          "0"
+        ],
+        [
+          "PLUS",
+          "+12,50",
+          "0"
+        ],
+        [
+          "NEGATIVE-ZERO",
+          "0,00",
+          "0"
+        ],
+        [
+          "EDGE-SPACE",
+          " 12,30 ",
+          "0"
+        ],
+        [
+          "PRECISION",
+          "0,10",
+          "0"
+        ],
+        [
+          "DECIMAL-NOT-GROUPING",
+          "1,234",
+          "0"
+        ],
+        [
+          "GROUPED",
+          "1.234,56",
+          "0"
+        ],
+        [
+          "GROUP-SPACES",
+          "1 234,56",
+          "0"
+        ],
+        [
+          "GROUP-NBSP",
+          "1 234,56",
+          "0"
+        ],
+        [
+          "WRONG-DECIMAL",
+          "12.30",
+          "0"
+        ],
+        [
+          "CURRENCY",
+          "€12,30",
+          "0"
+        ],
+        [
+          "SUFFIX",
+          "12,30 EUR",
+          "0"
+        ],
+        [
+          "EXPONENT",
+          "1e3",
+          "0"
+        ],
+        [
+          "HEX",
+          "0x10",
+          "0"
+        ],
+        [
+          "INFINITY",
+          "Infinity",
+          "0"
+        ],
+        [
+          "NAN",
+          "NaN",
+          "0"
+        ],
+        [
+          "MULTI-DOT",
+          "1,2,3",
+          "0"
+        ],
+        [
+          "UNDERSCORE",
+          "1_000",
+          "0"
+        ],
+        [
+          "PARENS",
+          "(12,30)",
+          "0"
+        ],
+        [
+          "FORMULA-VALUE",
+          "=1+1",
+          "0"
+        ]
+      ],
+      "data_row_count": 22,
+      "sha256": "5643e5f1850ccc5879a4211c148ba6e1d9709c9e82af75b94ca0ba54f33085c4"
+    },
+    "08-value-changes-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "TENTH",
+          "0.10"
+        ],
+        [
+          "ZERO-TO-POSITIVE",
+          "0"
+        ],
+        [
+          "POSITIVE-TO-ZERO",
+          "5"
+        ],
+        [
+          "NEGATIVE",
+          "-2"
+        ],
+        [
+          "REMOVED",
+          "9"
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "71e23793015b3ce339afb11e32c8d402e4eba97ce0fe802bc16403c38128d257"
+    },
+    "08-value-changes-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price"
+      ],
+      "rows": [
+        [
+          "TENTH",
+          "0.30"
+        ],
+        [
+          "ZERO-TO-POSITIVE",
+          "5"
+        ],
+        [
+          "POSITIVE-TO-ZERO",
+          "0"
+        ],
+        [
+          "NEGATIVE",
+          "-1"
+        ],
+        [
+          "ADDED",
+          "7"
+        ]
+      ],
+      "data_row_count": 5,
+      "sha256": "3b53ce2fdf9eb090ef10fdc6cac23c74108a6d393e87a088ad0560981b720b05"
+    },
+    "09-formula-before.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price",
+        "Description"
+      ],
+      "rows": [
+        [
+          "=1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "+SUM(1,2)",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "-2+3",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "@SUM(1,2)",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "  =1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\t=1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\r=1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\n=1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "'=1+1",
+          "1",
+          "Synthetic harmless expression"
+        ],
+        [
+          "SAFE-SKU",
+          "1",
+          "Synthetic harmless expression"
+        ]
+      ],
+      "data_row_count": 10,
+      "sha256": "c350d2f213ec84eb3e0a678edc935428b16a4ca4ec19084e2c8686e1099d5c7b"
+    },
+    "09-formula-after.csv": {
+      "valid_csv": true,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "header": [
+        "SKU",
+        "Price",
+        "Description"
+      ],
+      "rows": [
+        [
+          "=1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "+SUM(1,2)",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "-2+3",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "@SUM(1,2)",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "  =1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\t=1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\r=1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "\n=1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "'=1+1",
+          "2",
+          "Synthetic harmless expression"
+        ],
+        [
+          "SAFE-SKU",
+          "2",
+          "Synthetic harmless expression"
+        ]
+      ],
+      "data_row_count": 10,
+      "sha256": "ab9084849e4650acaac732bb77273546c0490e7487ec96934e9f841983c2dee3"
+    },
+    "10-malformed-unterminated.csv": {
+      "valid_csv": false,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "expected_error": "unterminated quoted field",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset.",
+      "sha256": "2bd24a7eef885b5d1243de2c4a526e4dd78df019f9feb089387fc6df33bf325d"
+    },
+    "11-malformed-width-short.csv": {
+      "valid_csv": false,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "expected_error": "row has 2 fields but header has 3",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset.",
+      "sha256": "1436de7a27de815cca99b33a45e946cb66cf1e85b557f80a80e175118b7b914a"
+    },
+    "12-malformed-width-long.csv": {
+      "valid_csv": false,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "expected_error": "row has 4 fields but header has 3",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset.",
+      "sha256": "e355a37c2b3fc9a57afdef5c3ffe4f24c0d116e82cbe097dede73c494a8be46b"
+    },
+    "13-malformed-after-quote.csv": {
+      "valid_csv": false,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "expected_error": "characters after closing quote before delimiter/end-record",
+      "logical_record": 2,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset.",
+      "sha256": "fc845cf948da25e46b5785018c9c699a4e2b896a9e75ce2d9feb2b82b9741ca7"
+    },
+    "14-malformed-bare-quote.csv": {
+      "valid_csv": false,
+      "encoding": "utf-8",
+      "delimiter": ",",
+      "expected_error": "double quote inside unquoted field",
+      "logical_record": 2,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset.",
+      "sha256": "d4781940555783e51c42843c723851517bce962019135d0448221284398684e3"
+    }
+  },
+  "comparison_cases": [
+    {
+      "id": "rfc4180-and-bom",
+      "before": "01-rfc-before.csv",
+      "after": "01-rfc-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "COMMA,SKU",
+            "status": "changed",
+            "before_numeric": "10",
+            "after_numeric": "11",
+            "delta": "1"
+          },
+          {
+            "sku": "QUOTE\"SKU",
+            "status": "unchanged",
+            "before_numeric": "2",
+            "after_numeric": "2"
+          },
+          {
+            "sku": "MULTILINE",
+            "status": "unchanged",
+            "before_numeric": "3.5",
+            "after_numeric": "3.5"
+          },
+          {
+            "sku": "café-01",
+            "status": "unchanged",
+            "before_numeric": "4",
+            "after_numeric": "4"
+          },
+          {
+            "sku": "TAIL",
+            "status": "unchanged",
+            "before_numeric": "0",
+            "after_numeric": "0"
+          }
+        ],
+        "counts": {
+          "changed": 1,
+          "unchanged": 4,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid": 0
+        },
+        "parse_assertions": [
+          "BOM removed only from start of first header",
+          "5 data records, not 6 physical-line records",
+          "Trailing empty Notes values retained",
+          "Embedded CRLF and doubled-quote content preserved"
+        ]
+      }
+    },
+    {
+      "id": "exact-default",
+      "before": "02-exact-before.csv",
+      "after": "02-exact-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "0007",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "7",
+            "status": "unchanged",
+            "before_numeric": "7",
+            "after_numeric": "7"
+          },
+          {
+            "sku": "abc",
+            "status": "removed",
+            "before_numeric": "3"
+          },
+          {
+            "sku": "ABC",
+            "status": "added",
+            "after_numeric": "3"
+          },
+          {
+            "sku": "Case",
+            "status": "removed",
+            "before_numeric": "4"
+          },
+          {
+            "sku": "case",
+            "status": "added",
+            "after_numeric": "4"
+          },
+          {
+            "sku": " SPACED ",
+            "status": "removed",
+            "before_numeric": "8"
+          },
+          {
+            "sku": "SPACED",
+            "status": "added",
+            "after_numeric": "9"
+          },
+          {
+            "sku": "INNER  SPACE",
+            "status": "removed",
+            "before_numeric": "9"
+          },
+          {
+            "sku": "INNER SPACE",
+            "status": "added",
+            "after_numeric": "9"
+          }
+        ],
+        "counts": {
+          "changed": 1,
+          "unchanged": 1,
+          "added": 4,
+          "removed": 4,
+          "conflict": 0,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "id": "trim-is-explicit",
+      "before": "02-exact-before.csv",
+      "after": "02-exact-after.csv",
+      "options": {
+        "trim_skus": true,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "0007",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "7",
+            "status": "unchanged",
+            "before_numeric": "7",
+            "after_numeric": "7"
+          },
+          {
+            "sku": "abc",
+            "status": "removed",
+            "before_numeric": "3"
+          },
+          {
+            "sku": "ABC",
+            "status": "added",
+            "after_numeric": "3"
+          },
+          {
+            "sku": "Case",
+            "status": "removed",
+            "before_numeric": "4"
+          },
+          {
+            "sku": "case",
+            "status": "added",
+            "after_numeric": "4"
+          },
+          {
+            "sku": "SPACED",
+            "status": "changed",
+            "before_numeric": "8",
+            "after_numeric": "9",
+            "delta": "1"
+          },
+          {
+            "sku": "INNER  SPACE",
+            "status": "removed",
+            "before_numeric": "9"
+          },
+          {
+            "sku": "INNER SPACE",
+            "status": "added",
+            "after_numeric": "9"
+          }
+        ],
+        "counts": {
+          "changed": 2,
+          "unchanged": 1,
+          "added": 3,
+          "removed": 3,
+          "conflict": 0,
+          "invalid": 0
+        }
+      },
+      "note": "Trim only edge whitespace. It never folds case, removes leading zeros, or collapses internal whitespace."
+    },
+    {
+      "id": "duplicates-on-either-side",
+      "before": "03-duplicates-before.csv",
+      "after": "03-duplicates-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "D1",
+            "status": "conflict",
+            "before_records": [
+              2,
+              3
+            ],
+            "after_records": [
+              2
+            ]
+          },
+          {
+            "sku": "D2",
+            "status": "conflict",
+            "before_records": [
+              4
+            ],
+            "after_records": [
+              3,
+              4
+            ]
+          },
+          {
+            "sku": "D3",
+            "status": "conflict",
+            "before_records": [
+              5,
+              6
+            ],
+            "after_records": [
+              5
+            ]
+          },
+          {
+            "sku": "SINGLE",
+            "status": "unchanged",
+            "before_numeric": "4",
+            "after_numeric": "4"
+          }
+        ],
+        "counts": {
+          "changed": 0,
+          "unchanged": 1,
+          "added": 0,
+          "removed": 0,
+          "conflict": 3,
+          "invalid": 0
+        },
+        "must_not": [
+          "Choose first/last duplicate",
+          "Sum or average duplicate prices",
+          "Treat identical duplicate values as safe to approve"
+        ]
+      }
+    },
+    {
+      "id": "trim-off-no-collision",
+      "before": "04-trim-collision-before.csv",
+      "after": "04-trim-collision-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "A",
+            "status": "unchanged",
+            "before_numeric": "11",
+            "after_numeric": "11"
+          },
+          {
+            "sku": " A ",
+            "status": "unchanged",
+            "before_numeric": "10",
+            "after_numeric": "10"
+          }
+        ],
+        "counts": {
+          "changed": 0,
+          "unchanged": 2,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "id": "trim-induced-duplicate",
+      "before": "04-trim-collision-before.csv",
+      "after": "04-trim-collision-after.csv",
+      "options": {
+        "trim_skus": true,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "A",
+            "status": "conflict",
+            "before_records": [
+              2,
+              3
+            ],
+            "after_records": [
+              2,
+              3
+            ]
+          }
+        ],
+        "counts": {
+          "changed": 0,
+          "unchanged": 0,
+          "added": 0,
+          "removed": 0,
+          "conflict": 1,
+          "invalid": 0
+        }
+      }
+    },
+    {
+      "id": "missing-is-not-zero",
+      "before": "05-missing-before.csv",
+      "after": "05-missing-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "ZERO",
+            "status": "unchanged",
+            "before_numeric": "0",
+            "after_numeric": "0"
+          },
+          {
+            "sku": "MISSING-OLD",
+            "status": "invalid",
+            "reason": "before value missing; after zero is a value"
+          },
+          {
+            "sku": "MISSING-NEW",
+            "status": "invalid",
+            "reason": "after value missing"
+          },
+          {
+            "sku": "BOTH-EMPTY",
+            "status": "invalid",
+            "reason": "both values missing"
+          },
+          {
+            "sku": "SPACE-VALUE",
+            "status": "invalid",
+            "reason": "before value contains only whitespace"
+          }
+        ],
+        "unkeyed_invalid_records": {
+          "before": [
+            2,
+            3
+          ],
+          "after": [
+            2,
+            3
+          ]
+        },
+        "counts": {
+          "changed": 0,
+          "unchanged": 1,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid_keyed": 4,
+          "unkeyed_invalid_rows": 4
+        },
+        "must_not": [
+          "Coerce empty or whitespace-only values to zero",
+          "Pair two missing-SKU records together",
+          "Approve whitespace-only SKU because trim is off"
+        ]
+      },
+      "note": "Blank/whitespace-only SKUs are invalid even in exact mode; nonblank SKU edge whitespace is retained unless trim is explicitly on."
+    },
+    {
+      "id": "identifiers-are-text",
+      "before": "06-identifiers-before.csv",
+      "after": "06-identifiers-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "1e3",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "1000",
+            "status": "unchanged",
+            "before_numeric": "2",
+            "after_numeric": "2"
+          },
+          {
+            "sku": "000001",
+            "status": "unchanged",
+            "before_numeric": "3",
+            "after_numeric": "3"
+          },
+          {
+            "sku": "9007199254740993",
+            "status": "changed",
+            "before_numeric": "4",
+            "after_numeric": "5",
+            "delta": "1"
+          },
+          {
+            "sku": "9007199254740992",
+            "status": "unchanged",
+            "before_numeric": "5",
+            "after_numeric": "5"
+          }
+        ],
+        "counts": {
+          "changed": 2,
+          "unchanged": 3,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid": 0
+        },
+        "must_not": [
+          "Parse a SKU as a JavaScript number or scientific notation",
+          "Lose leading zeros",
+          "Collapse adjacent integers above 2^53"
+        ]
+      }
+    },
+    {
+      "id": "per-file-decimal-and-column-selection",
+      "before": "07-decimal-dot-before.csv",
+      "after": "07-decimal-comma-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "Item",
+        "after_sku_column": "Code",
+        "before_value_column": "Cost",
+        "after_value_column": "Net price",
+        "before_decimal": "dot",
+        "after_decimal": "comma"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "DECIMAL",
+            "status": "unchanged",
+            "before_numeric": "12.3",
+            "after_numeric": "12.3"
+          },
+          {
+            "sku": "INTEGER",
+            "status": "unchanged",
+            "before_numeric": "1234",
+            "after_numeric": "1234"
+          },
+          {
+            "sku": "NEGATIVE",
+            "status": "unchanged",
+            "before_numeric": "-12.5",
+            "after_numeric": "-12.5"
+          },
+          {
+            "sku": "PLUS",
+            "status": "unchanged",
+            "before_numeric": "12.5",
+            "after_numeric": "12.5"
+          },
+          {
+            "sku": "NEGATIVE-ZERO",
+            "status": "unchanged",
+            "before_numeric": "0",
+            "after_numeric": "0"
+          },
+          {
+            "sku": "EDGE-SPACE",
+            "status": "unchanged",
+            "before_numeric": "12.3",
+            "after_numeric": "12.3"
+          },
+          {
+            "sku": "PRECISION",
+            "status": "unchanged",
+            "before_numeric": "0.1",
+            "after_numeric": "0.1"
+          },
+          {
+            "sku": "DECIMAL-NOT-GROUPING",
+            "status": "unchanged",
+            "before_numeric": "1.234",
+            "after_numeric": "1.234"
+          },
+          {
+            "sku": "GROUPED",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "GROUP-SPACES",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "GROUP-NBSP",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "WRONG-DECIMAL",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "CURRENCY",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "SUFFIX",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "EXPONENT",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "HEX",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "INFINITY",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "NAN",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "MULTI-DOT",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "UNDERSCORE",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "PARENS",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          },
+          {
+            "sku": "FORMULA-VALUE",
+            "status": "invalid",
+            "reason": "Rejected numeric grammar on both sides"
+          }
+        ],
+        "counts": {
+          "changed": 0,
+          "unchanged": 8,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid": 14
+        },
+        "must_not": [
+          "Use Quantity because it also looks numeric",
+          "Use parseFloat prefix success for malformed input",
+          "Guess thousands grouping",
+          "Parse scientific notation in a numeric-value column without an explicit mode"
+        ]
+      },
+      "note": "Conservative numeric contract: trim value-edge whitespace, allow optional +/- and digits with at most the selected decimal separator; require the entire text to match. Grouping, currency and exponent notation are not supported. This numeric contract was confirmed for the current release."
+    },
+    {
+      "id": "changes-zero-and-decimal-delta",
+      "before": "08-value-changes-before.csv",
+      "after": "08-value-changes-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "TENTH",
+            "status": "changed",
+            "before_numeric": "0.1",
+            "after_numeric": "0.3",
+            "delta": "0.2",
+            "percent_change": "200"
+          },
+          {
+            "sku": "ZERO-TO-POSITIVE",
+            "status": "changed",
+            "before_numeric": "0",
+            "after_numeric": "5",
+            "delta": "5",
+            "percent_change": null,
+            "percent_reason": "zero baseline: undefined"
+          },
+          {
+            "sku": "POSITIVE-TO-ZERO",
+            "status": "changed",
+            "before_numeric": "5",
+            "after_numeric": "0",
+            "delta": "-5",
+            "percent_change": "-100"
+          },
+          {
+            "sku": "NEGATIVE",
+            "status": "changed",
+            "before_numeric": "-2",
+            "after_numeric": "-1",
+            "delta": "1"
+          },
+          {
+            "sku": "REMOVED",
+            "status": "removed",
+            "before_numeric": "9"
+          },
+          {
+            "sku": "ADDED",
+            "status": "added",
+            "after_numeric": "7"
+          }
+        ],
+        "counts": {
+          "changed": 4,
+          "unchanged": 0,
+          "added": 1,
+          "removed": 1,
+          "conflict": 0,
+          "invalid": 0
+        },
+        "display_assertions": [
+          "Do not display binary floating-point residue for 0.3 minus 0.1",
+          "Never show Infinity percent for a zero baseline"
+        ],
+        "conditional": "Percent expectations only apply if the product shows percentages; no negative-baseline percent convention is prescribed."
+      }
+    },
+    {
+      "id": "formula-looking-sku-and-report",
+      "before": "09-formula-before.csv",
+      "after": "09-formula-after.csv",
+      "options": {
+        "trim_skus": false,
+        "sku_matching": "case-sensitive exact text after optional trim",
+        "before_sku_column": "SKU",
+        "after_sku_column": "SKU",
+        "before_value_column": "Price",
+        "after_value_column": "Price",
+        "before_decimal": "dot",
+        "after_decimal": "dot"
+      },
+      "expected": {
+        "rows": [
+          {
+            "sku": "=1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "+SUM(1,2)",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "-2+3",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "@SUM(1,2)",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "  =1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "\t=1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "\r=1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "\n=1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "'=1+1",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          },
+          {
+            "sku": "SAFE-SKU",
+            "status": "changed",
+            "before_numeric": "1",
+            "after_numeric": "2",
+            "delta": "1"
+          }
+        ],
+        "counts": {
+          "changed": 10,
+          "unchanged": 0,
+          "added": 0,
+          "removed": 0,
+          "conflict": 0,
+          "invalid": 0
+        },
+        "report_text_cells": [
+          {
+            "raw": "=1+1",
+            "safe_csv_cell_content": "'=1+1"
+          },
+          {
+            "raw": "+SUM(1,2)",
+            "safe_csv_cell_content": "'+SUM(1,2)"
+          },
+          {
+            "raw": "-2+3",
+            "safe_csv_cell_content": "'-2+3"
+          },
+          {
+            "raw": "@SUM(1,2)",
+            "safe_csv_cell_content": "'@SUM(1,2)"
+          },
+          {
+            "raw": "  =1+1",
+            "safe_csv_cell_content": "'  =1+1"
+          },
+          {
+            "raw": "\t=1+1",
+            "safe_csv_cell_content": "'\t=1+1"
+          },
+          {
+            "raw": "\r=1+1",
+            "safe_csv_cell_content": "'\r=1+1"
+          },
+          {
+            "raw": "\n=1+1",
+            "safe_csv_cell_content": "'\n=1+1"
+          },
+          {
+            "raw": "'=1+1",
+            "safe_csv_cell_content": "'=1+1"
+          },
+          {
+            "raw": "SAFE-SKU",
+            "safe_csv_cell_content": "SAFE-SKU"
+          }
+        ],
+        "report_assertions": [
+          "Keep raw SKU unchanged for matching and on-screen display",
+          "Escape only exported text fields; do not mutate source data",
+          "CSV quoting alone is not formula escaping",
+          "Check after leading spaces/control characters for formula trigger",
+          "Prefix a single apostrophe before the complete original text when unsafe",
+          "Use RFC4180 serialization after formula escaping",
+          "Label the download as a comparison report, not a supplier/import-ready file"
+        ],
+        "note": "These are harmless expression strings, not executable links or network payloads. Existing apostrophe is kept without adding a second one. Decimal numeric report cells may be serialized as validated numbers rather than untrusted text."
+      }
+    }
+  ],
+  "parser_failure_cases": [
+    {
+      "file": "10-malformed-unterminated.csv",
+      "expected_error": "unterminated quoted field",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset."
+    },
+    {
+      "file": "11-malformed-width-short.csv",
+      "expected_error": "row has 2 fields but header has 3",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset."
+    },
+    {
+      "file": "12-malformed-width-long.csv",
+      "expected_error": "row has 4 fields but header has 3",
+      "logical_record": 3,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset."
+    },
+    {
+      "file": "13-malformed-after-quote.csv",
+      "expected_error": "characters after closing quote before delimiter/end-record",
+      "logical_record": 2,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset."
+    },
+    {
+      "file": "14-malformed-bare-quote.csv",
+      "expected_error": "double quote inside unquoted field",
+      "logical_record": 2,
+      "expected_policy": "Reject this file; do not compare a silently truncated or padded subset."
+    }
+  ]
+}

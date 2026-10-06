@@ -1,0 +1,12 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'=1+1","2","2","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'+SUM(1,2)","3","3","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'-2+3","4","4","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'@SUM(1,2)","5","5","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'  =1+1","6","6","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'	=1+1","7","7","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'=1+1","8","8","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'
+=1+1","9","9","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","'=1+1","10","10","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","SAFE-SKU","11","11","1","2","'+1","Exact SKU match; value differs"

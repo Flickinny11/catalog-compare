@@ -1,0 +1,5 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","conflict","D1","2; 3","2","10 | 11","12","","Duplicate SKU: 2 catalog / 1 supplier rows"
+"REVIEW ONLY - NOT AN IMPORT FILE","conflict","D2","4","3; 4","20","20 | 21","","Duplicate SKU: 1 catalog / 2 supplier rows"
+"REVIEW ONLY - NOT AN IMPORT FILE","conflict","D3","5; 6","5","30 | 30","30","","Duplicate SKU: 2 catalog / 1 supplier rows"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","SINGLE","7","6","4","4","0","Exact SKU match; same numeric value"

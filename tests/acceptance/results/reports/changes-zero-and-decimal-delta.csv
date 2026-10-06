@@ -1,0 +1,7 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","TENTH","2","2","0.10","0.30","'+0.20","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","ZERO-TO-POSITIVE","3","3","0","5","'+5","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","POSITIVE-TO-ZERO","4","4","5","0","'-5","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","NEGATIVE","5","5","'-2","'-1","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","removed","REMOVED","6","","9","","","Catalog only. Not supplied; not an instruction to remove or zero."
+"REVIEW ONLY - NOT AN IMPORT FILE","added","ADDED","","6","","7","","Supplier only. No catalog match; not an instruction to add."

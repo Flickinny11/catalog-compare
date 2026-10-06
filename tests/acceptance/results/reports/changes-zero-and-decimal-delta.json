@@ -1,0 +1,151 @@
+{
+  "rows": [
+    {
+      "key": "TENTH",
+      "before": [
+        {
+          "key": "TENTH",
+          "rawKey": "TENTH",
+          "rawValue": "0.10",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "TENTH",
+          "rawKey": "TENTH",
+          "rawValue": "0.30",
+          "record": 2
+        }
+      ],
+      "delta": "+0.20",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "0.1",
+      "afterNumber": "0.3"
+    },
+    {
+      "key": "ZERO-TO-POSITIVE",
+      "before": [
+        {
+          "key": "ZERO-TO-POSITIVE",
+          "rawKey": "ZERO-TO-POSITIVE",
+          "rawValue": "0",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "ZERO-TO-POSITIVE",
+          "rawKey": "ZERO-TO-POSITIVE",
+          "rawValue": "5",
+          "record": 3
+        }
+      ],
+      "delta": "+5",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "0",
+      "afterNumber": "5"
+    },
+    {
+      "key": "POSITIVE-TO-ZERO",
+      "before": [
+        {
+          "key": "POSITIVE-TO-ZERO",
+          "rawKey": "POSITIVE-TO-ZERO",
+          "rawValue": "5",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "POSITIVE-TO-ZERO",
+          "rawKey": "POSITIVE-TO-ZERO",
+          "rawValue": "0",
+          "record": 4
+        }
+      ],
+      "delta": "-5",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "5",
+      "afterNumber": "0"
+    },
+    {
+      "key": "NEGATIVE",
+      "before": [
+        {
+          "key": "NEGATIVE",
+          "rawKey": "NEGATIVE",
+          "rawValue": "-2",
+          "record": 5
+        }
+      ],
+      "after": [
+        {
+          "key": "NEGATIVE",
+          "rawKey": "NEGATIVE",
+          "rawValue": "-1",
+          "record": 5
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "-2",
+      "afterNumber": "-1"
+    },
+    {
+      "key": "REMOVED",
+      "before": [
+        {
+          "key": "REMOVED",
+          "rawKey": "REMOVED",
+          "rawValue": "9",
+          "record": 6
+        }
+      ],
+      "after": [],
+      "delta": "",
+      "reason": "Catalog only. Not supplied; not an instruction to remove or zero.",
+      "status": "removed"
+    },
+    {
+      "key": "ADDED",
+      "before": [],
+      "after": [
+        {
+          "key": "ADDED",
+          "rawKey": "ADDED",
+          "rawValue": "7",
+          "record": 6
+        }
+      ],
+      "delta": "",
+      "reason": "Supplier only. No catalog match; not an instruction to add.",
+      "status": "added"
+    }
+  ],
+  "counts": {
+    "changed": 4,
+    "unchanged": 0,
+    "added": 1,
+    "removed": 1,
+    "conflict": 0,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 5,
+    "after": 5
+  }
+}

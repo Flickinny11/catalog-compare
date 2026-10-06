@@ -1,0 +1,62 @@
+{
+  "parser": "Python standard csv.reader(strict=True)",
+  "passed": 11,
+  "failed": 0,
+  "results": [
+    {
+      "id": "rfc4180-and-bom",
+      "passed": true,
+      "data_rows": 5
+    },
+    {
+      "id": "exact-default",
+      "passed": true,
+      "data_rows": 10
+    },
+    {
+      "id": "trim-is-explicit",
+      "passed": true,
+      "data_rows": 9
+    },
+    {
+      "id": "duplicates-on-either-side",
+      "passed": true,
+      "data_rows": 4
+    },
+    {
+      "id": "trim-off-no-collision",
+      "passed": true,
+      "data_rows": 2
+    },
+    {
+      "id": "trim-induced-duplicate",
+      "passed": true,
+      "data_rows": 1
+    },
+    {
+      "id": "missing-is-not-zero",
+      "passed": true,
+      "data_rows": 9
+    },
+    {
+      "id": "identifiers-are-text",
+      "passed": true,
+      "data_rows": 5
+    },
+    {
+      "id": "per-file-decimal-and-column-selection",
+      "passed": true,
+      "data_rows": 22
+    },
+    {
+      "id": "changes-zero-and-decimal-delta",
+      "passed": true,
+      "data_rows": 6
+    },
+    {
+      "id": "formula-looking-sku-and-report",
+      "passed": true,
+      "data_rows": 10
+    }
+  ]
+}

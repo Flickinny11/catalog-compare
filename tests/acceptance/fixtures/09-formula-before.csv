@@ -1,0 +1,12 @@
+SKU,Price,Description
+=1+1,1,Synthetic harmless expression
+"+SUM(1,2)",1,Synthetic harmless expression
+-2+3,1,Synthetic harmless expression
+"@SUM(1,2)",1,Synthetic harmless expression
+  =1+1,1,Synthetic harmless expression
+	=1+1,1,Synthetic harmless expression
+"=1+1",1,Synthetic harmless expression
+"
+=1+1",1,Synthetic harmless expression
+'=1+1,1,Synthetic harmless expression
+SAFE-SKU,1,Synthetic harmless expression

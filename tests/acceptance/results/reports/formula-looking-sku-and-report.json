@@ -1,0 +1,265 @@
+{
+  "rows": [
+    {
+      "key": "=1+1",
+      "before": [
+        {
+          "key": "=1+1",
+          "rawKey": "=1+1",
+          "rawValue": "1",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "=1+1",
+          "rawKey": "=1+1",
+          "rawValue": "2",
+          "record": 2
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "+SUM(1,2)",
+      "before": [
+        {
+          "key": "+SUM(1,2)",
+          "rawKey": "+SUM(1,2)",
+          "rawValue": "1",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "+SUM(1,2)",
+          "rawKey": "+SUM(1,2)",
+          "rawValue": "2",
+          "record": 3
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "-2+3",
+      "before": [
+        {
+          "key": "-2+3",
+          "rawKey": "-2+3",
+          "rawValue": "1",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "-2+3",
+          "rawKey": "-2+3",
+          "rawValue": "2",
+          "record": 4
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "@SUM(1,2)",
+      "before": [
+        {
+          "key": "@SUM(1,2)",
+          "rawKey": "@SUM(1,2)",
+          "rawValue": "1",
+          "record": 5
+        }
+      ],
+      "after": [
+        {
+          "key": "@SUM(1,2)",
+          "rawKey": "@SUM(1,2)",
+          "rawValue": "2",
+          "record": 5
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "  =1+1",
+      "before": [
+        {
+          "key": "  =1+1",
+          "rawKey": "  =1+1",
+          "rawValue": "1",
+          "record": 6
+        }
+      ],
+      "after": [
+        {
+          "key": "  =1+1",
+          "rawKey": "  =1+1",
+          "rawValue": "2",
+          "record": 6
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "\t=1+1",
+      "before": [
+        {
+          "key": "\t=1+1",
+          "rawKey": "\t=1+1",
+          "rawValue": "1",
+          "record": 7
+        }
+      ],
+      "after": [
+        {
+          "key": "\t=1+1",
+          "rawKey": "\t=1+1",
+          "rawValue": "2",
+          "record": 7
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "\r=1+1",
+      "before": [
+        {
+          "key": "\r=1+1",
+          "rawKey": "\r=1+1",
+          "rawValue": "1",
+          "record": 8
+        }
+      ],
+      "after": [
+        {
+          "key": "\r=1+1",
+          "rawKey": "\r=1+1",
+          "rawValue": "2",
+          "record": 8
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "\n=1+1",
+      "before": [
+        {
+          "key": "\n=1+1",
+          "rawKey": "\n=1+1",
+          "rawValue": "1",
+          "record": 9
+        }
+      ],
+      "after": [
+        {
+          "key": "\n=1+1",
+          "rawKey": "\n=1+1",
+          "rawValue": "2",
+          "record": 9
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "'=1+1",
+      "before": [
+        {
+          "key": "'=1+1",
+          "rawKey": "'=1+1",
+          "rawValue": "1",
+          "record": 10
+        }
+      ],
+      "after": [
+        {
+          "key": "'=1+1",
+          "rawKey": "'=1+1",
+          "rawValue": "2",
+          "record": 10
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    },
+    {
+      "key": "SAFE-SKU",
+      "before": [
+        {
+          "key": "SAFE-SKU",
+          "rawKey": "SAFE-SKU",
+          "rawValue": "1",
+          "record": 11
+        }
+      ],
+      "after": [
+        {
+          "key": "SAFE-SKU",
+          "rawKey": "SAFE-SKU",
+          "rawValue": "2",
+          "record": 11
+        }
+      ],
+      "delta": "+1",
+      "reason": "Exact SKU match; value differs",
+      "status": "changed",
+      "beforeNumber": "1",
+      "afterNumber": "2"
+    }
+  ],
+  "counts": {
+    "changed": 10,
+    "unchanged": 0,
+    "added": 0,
+    "removed": 0,
+    "conflict": 0,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 10,
+    "after": 10
+  }
+}

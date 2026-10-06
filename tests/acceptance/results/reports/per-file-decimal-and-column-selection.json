@@ -1,0 +1,525 @@
+{
+  "rows": [
+    {
+      "key": "DECIMAL",
+      "before": [
+        {
+          "key": "DECIMAL",
+          "rawKey": "DECIMAL",
+          "rawValue": "12.30",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "DECIMAL",
+          "rawKey": "DECIMAL",
+          "rawValue": "12,30",
+          "record": 2
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "12.3",
+      "afterNumber": "12.3"
+    },
+    {
+      "key": "INTEGER",
+      "before": [
+        {
+          "key": "INTEGER",
+          "rawKey": "INTEGER",
+          "rawValue": "1234",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "INTEGER",
+          "rawKey": "INTEGER",
+          "rawValue": "1234",
+          "record": 3
+        }
+      ],
+      "delta": "0",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "1234",
+      "afterNumber": "1234"
+    },
+    {
+      "key": "NEGATIVE",
+      "before": [
+        {
+          "key": "NEGATIVE",
+          "rawKey": "NEGATIVE",
+          "rawValue": "-12.50",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "NEGATIVE",
+          "rawKey": "NEGATIVE",
+          "rawValue": "-12,50",
+          "record": 4
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "-12.5",
+      "afterNumber": "-12.5"
+    },
+    {
+      "key": "PLUS",
+      "before": [
+        {
+          "key": "PLUS",
+          "rawKey": "PLUS",
+          "rawValue": "+12.50",
+          "record": 5
+        }
+      ],
+      "after": [
+        {
+          "key": "PLUS",
+          "rawKey": "PLUS",
+          "rawValue": "+12,50",
+          "record": 5
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "12.5",
+      "afterNumber": "12.5"
+    },
+    {
+      "key": "NEGATIVE-ZERO",
+      "before": [
+        {
+          "key": "NEGATIVE-ZERO",
+          "rawKey": "NEGATIVE-ZERO",
+          "rawValue": "-0.00",
+          "record": 6
+        }
+      ],
+      "after": [
+        {
+          "key": "NEGATIVE-ZERO",
+          "rawKey": "NEGATIVE-ZERO",
+          "rawValue": "0,00",
+          "record": 6
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "0",
+      "afterNumber": "0"
+    },
+    {
+      "key": "EDGE-SPACE",
+      "before": [
+        {
+          "key": "EDGE-SPACE",
+          "rawKey": "EDGE-SPACE",
+          "rawValue": " 12.30 ",
+          "record": 7
+        }
+      ],
+      "after": [
+        {
+          "key": "EDGE-SPACE",
+          "rawKey": "EDGE-SPACE",
+          "rawValue": " 12,30 ",
+          "record": 7
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "12.3",
+      "afterNumber": "12.3"
+    },
+    {
+      "key": "PRECISION",
+      "before": [
+        {
+          "key": "PRECISION",
+          "rawKey": "PRECISION",
+          "rawValue": "0.10",
+          "record": 8
+        }
+      ],
+      "after": [
+        {
+          "key": "PRECISION",
+          "rawKey": "PRECISION",
+          "rawValue": "0,10",
+          "record": 8
+        }
+      ],
+      "delta": "0.00",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "0.1",
+      "afterNumber": "0.1"
+    },
+    {
+      "key": "DECIMAL-NOT-GROUPING",
+      "before": [
+        {
+          "key": "DECIMAL-NOT-GROUPING",
+          "rawKey": "DECIMAL-NOT-GROUPING",
+          "rawValue": "1.234",
+          "record": 9
+        }
+      ],
+      "after": [
+        {
+          "key": "DECIMAL-NOT-GROUPING",
+          "rawKey": "DECIMAL-NOT-GROUPING",
+          "rawValue": "1,234",
+          "record": 9
+        }
+      ],
+      "delta": "0.000",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "1.234",
+      "afterNumber": "1.234"
+    },
+    {
+      "key": "GROUPED",
+      "before": [
+        {
+          "key": "GROUPED",
+          "rawKey": "GROUPED",
+          "rawValue": "1,234.56",
+          "record": 10
+        }
+      ],
+      "after": [
+        {
+          "key": "GROUPED",
+          "rawKey": "GROUPED",
+          "rawValue": "1.234,56",
+          "record": 10
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "GROUP-SPACES",
+      "before": [
+        {
+          "key": "GROUP-SPACES",
+          "rawKey": "GROUP-SPACES",
+          "rawValue": "1 234.56",
+          "record": 11
+        }
+      ],
+      "after": [
+        {
+          "key": "GROUP-SPACES",
+          "rawKey": "GROUP-SPACES",
+          "rawValue": "1 234,56",
+          "record": 11
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "GROUP-NBSP",
+      "before": [
+        {
+          "key": "GROUP-NBSP",
+          "rawKey": "GROUP-NBSP",
+          "rawValue": "1 234.56",
+          "record": 12
+        }
+      ],
+      "after": [
+        {
+          "key": "GROUP-NBSP",
+          "rawKey": "GROUP-NBSP",
+          "rawValue": "1 234,56",
+          "record": 12
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "WRONG-DECIMAL",
+      "before": [
+        {
+          "key": "WRONG-DECIMAL",
+          "rawKey": "WRONG-DECIMAL",
+          "rawValue": "12,30",
+          "record": 13
+        }
+      ],
+      "after": [
+        {
+          "key": "WRONG-DECIMAL",
+          "rawKey": "WRONG-DECIMAL",
+          "rawValue": "12.30",
+          "record": 13
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "CURRENCY",
+      "before": [
+        {
+          "key": "CURRENCY",
+          "rawKey": "CURRENCY",
+          "rawValue": "$12.30",
+          "record": 14
+        }
+      ],
+      "after": [
+        {
+          "key": "CURRENCY",
+          "rawKey": "CURRENCY",
+          "rawValue": "€12,30",
+          "record": 14
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "SUFFIX",
+      "before": [
+        {
+          "key": "SUFFIX",
+          "rawKey": "SUFFIX",
+          "rawValue": "12.30 USD",
+          "record": 15
+        }
+      ],
+      "after": [
+        {
+          "key": "SUFFIX",
+          "rawKey": "SUFFIX",
+          "rawValue": "12,30 EUR",
+          "record": 15
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "EXPONENT",
+      "before": [
+        {
+          "key": "EXPONENT",
+          "rawKey": "EXPONENT",
+          "rawValue": "1e3",
+          "record": 16
+        }
+      ],
+      "after": [
+        {
+          "key": "EXPONENT",
+          "rawKey": "EXPONENT",
+          "rawValue": "1e3",
+          "record": 16
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "HEX",
+      "before": [
+        {
+          "key": "HEX",
+          "rawKey": "HEX",
+          "rawValue": "0x10",
+          "record": 17
+        }
+      ],
+      "after": [
+        {
+          "key": "HEX",
+          "rawKey": "HEX",
+          "rawValue": "0x10",
+          "record": 17
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "INFINITY",
+      "before": [
+        {
+          "key": "INFINITY",
+          "rawKey": "INFINITY",
+          "rawValue": "Infinity",
+          "record": 18
+        }
+      ],
+      "after": [
+        {
+          "key": "INFINITY",
+          "rawKey": "INFINITY",
+          "rawValue": "Infinity",
+          "record": 18
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "NAN",
+      "before": [
+        {
+          "key": "NAN",
+          "rawKey": "NAN",
+          "rawValue": "NaN",
+          "record": 19
+        }
+      ],
+      "after": [
+        {
+          "key": "NAN",
+          "rawKey": "NAN",
+          "rawValue": "NaN",
+          "record": 19
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "MULTI-DOT",
+      "before": [
+        {
+          "key": "MULTI-DOT",
+          "rawKey": "MULTI-DOT",
+          "rawValue": "1.2.3",
+          "record": 20
+        }
+      ],
+      "after": [
+        {
+          "key": "MULTI-DOT",
+          "rawKey": "MULTI-DOT",
+          "rawValue": "1,2,3",
+          "record": 20
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "UNDERSCORE",
+      "before": [
+        {
+          "key": "UNDERSCORE",
+          "rawKey": "UNDERSCORE",
+          "rawValue": "1_000",
+          "record": 21
+        }
+      ],
+      "after": [
+        {
+          "key": "UNDERSCORE",
+          "rawKey": "UNDERSCORE",
+          "rawValue": "1_000",
+          "record": 21
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "PARENS",
+      "before": [
+        {
+          "key": "PARENS",
+          "rawKey": "PARENS",
+          "rawValue": "(12.30)",
+          "record": 22
+        }
+      ],
+      "after": [
+        {
+          "key": "PARENS",
+          "rawKey": "PARENS",
+          "rawValue": "(12,30)",
+          "record": 22
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    },
+    {
+      "key": "FORMULA-VALUE",
+      "before": [
+        {
+          "key": "FORMULA-VALUE",
+          "rawKey": "FORMULA-VALUE",
+          "rawValue": "=1+1",
+          "record": 23
+        }
+      ],
+      "after": [
+        {
+          "key": "FORMULA-VALUE",
+          "rawKey": "FORMULA-VALUE",
+          "rawValue": "=1+1",
+          "record": 23
+        }
+      ],
+      "delta": "",
+      "reason": "Catalog: Not a plain decimal (dot format); Supplier: Not a plain decimal (comma format)",
+      "status": "invalid"
+    }
+  ],
+  "counts": {
+    "changed": 0,
+    "unchanged": 8,
+    "added": 0,
+    "removed": 0,
+    "conflict": 0,
+    "invalid": 14
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ",",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 22,
+    "after": 22
+  }
+}

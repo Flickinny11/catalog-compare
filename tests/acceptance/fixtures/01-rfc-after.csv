@@ -1,0 +1,7 @@
+SKU,Price,Description,Notes
+"COMMA,SKU",11.00,"Widget, large",
+"QUOTE""SKU",2,"He said ""hello""",quoted identifier
+MULTILINE,3.500,"Line one
+Line two",embedded CRLF
+café-01,4,Café / 日本語 / 🧾,Unicode
+TAIL,0.00,Last field is empty,

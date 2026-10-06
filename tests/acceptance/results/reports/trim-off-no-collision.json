@@ -1,0 +1,73 @@
+{
+  "rows": [
+    {
+      "key": "A",
+      "before": [
+        {
+          "key": "A",
+          "rawKey": "A",
+          "rawValue": "11",
+          "record": 2
+        }
+      ],
+      "after": [
+        {
+          "key": "A",
+          "rawKey": "A",
+          "rawValue": "11",
+          "record": 2
+        }
+      ],
+      "delta": "0",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "11",
+      "afterNumber": "11"
+    },
+    {
+      "key": " A ",
+      "before": [
+        {
+          "key": " A ",
+          "rawKey": " A ",
+          "rawValue": "10",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": " A ",
+          "rawKey": " A ",
+          "rawValue": "10",
+          "record": 3
+        }
+      ],
+      "delta": "0",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "10",
+      "afterNumber": "10"
+    }
+  ],
+  "counts": {
+    "changed": 0,
+    "unchanged": 2,
+    "added": 0,
+    "removed": 0,
+    "conflict": 0,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 2,
+    "after": 2
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "rows": [
+    {
+      "key": "D1",
+      "before": [
+        {
+          "key": "D1",
+          "rawKey": "D1",
+          "rawValue": "10",
+          "record": 2
+        },
+        {
+          "key": "D1",
+          "rawKey": "D1",
+          "rawValue": "11",
+          "record": 3
+        }
+      ],
+      "after": [
+        {
+          "key": "D1",
+          "rawKey": "D1",
+          "rawValue": "12",
+          "record": 2
+        }
+      ],
+      "delta": "",
+      "reason": "Duplicate SKU: 2 catalog / 1 supplier rows",
+      "status": "conflict"
+    },
+    {
+      "key": "D2",
+      "before": [
+        {
+          "key": "D2",
+          "rawKey": "D2",
+          "rawValue": "20",
+          "record": 4
+        }
+      ],
+      "after": [
+        {
+          "key": "D2",
+          "rawKey": "D2",
+          "rawValue": "20",
+          "record": 3
+        },
+        {
+          "key": "D2",
+          "rawKey": "D2",
+          "rawValue": "21",
+          "record": 4
+        }
+      ],
+      "delta": "",
+      "reason": "Duplicate SKU: 1 catalog / 2 supplier rows",
+      "status": "conflict"
+    },
+    {
+      "key": "D3",
+      "before": [
+        {
+          "key": "D3",
+          "rawKey": "D3",
+          "rawValue": "30",
+          "record": 5
+        },
+        {
+          "key": "D3",
+          "rawKey": "D3",
+          "rawValue": "30",
+          "record": 6
+        }
+      ],
+      "after": [
+        {
+          "key": "D3",
+          "rawKey": "D3",
+          "rawValue": "30",
+          "record": 5
+        }
+      ],
+      "delta": "",
+      "reason": "Duplicate SKU: 2 catalog / 1 supplier rows",
+      "status": "conflict"
+    },
+    {
+      "key": "SINGLE",
+      "before": [
+        {
+          "key": "SINGLE",
+          "rawKey": "SINGLE",
+          "rawValue": "4",
+          "record": 7
+        }
+      ],
+      "after": [
+        {
+          "key": "SINGLE",
+          "rawKey": "SINGLE",
+          "rawValue": "4",
+          "record": 6
+        }
+      ],
+      "delta": "0",
+      "reason": "Exact SKU match; same numeric value",
+      "status": "unchanged",
+      "beforeNumber": "4",
+      "afterNumber": "4"
+    }
+  ],
+  "counts": {
+    "changed": 0,
+    "unchanged": 1,
+    "added": 0,
+    "removed": 0,
+    "conflict": 3,
+    "invalid": 0
+  },
+  "options": {
+    "beforeKey": 0,
+    "beforeValue": 1,
+    "afterKey": 0,
+    "afterValue": 1,
+    "beforeDecimal": ".",
+    "afterDecimal": ".",
+    "trimKeys": false
+  },
+  "sourceCounts": {
+    "before": 6,
+    "after": 5
+  }
+}

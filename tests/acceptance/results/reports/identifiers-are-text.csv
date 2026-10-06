@@ -1,0 +1,6 @@
+﻿"Report type","Status","SKU as text","Catalog records","Supplier records","Catalog raw value","Supplier raw value","Numeric change","Review note"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","1e3","2","2","1","2","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","1000","3","3","2","2","0","Exact SKU match; same numeric value"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","000001","4","4","3","3","0","Exact SKU match; same numeric value"
+"REVIEW ONLY - NOT AN IMPORT FILE","changed","9007199254740993","5","5","4","5","'+1","Exact SKU match; value differs"
+"REVIEW ONLY - NOT AN IMPORT FILE","unchanged","9007199254740992","6","6","5","5","0","Exact SKU match; same numeric value"
